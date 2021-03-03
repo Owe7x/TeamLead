@@ -1,0 +1,161 @@
+/* Стили для видеофона */
+
+#video-bg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: -1;
+	background: #000;
+	background-size: cover;
+}
+
+#video-bg > video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto;
+	height: auto; 
+}
+
+
+/* Проверка на поддержку свойства object-fit: */
+
+ @supports (object-fit: cover) {
+     #video-bg > video {
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+     }
+ }
+
+
+/* Отключение видео для устройств с размером экрана менее 800px: */
+
+@media screen and (max-device-width: 800px) {
+	#video-bg > video {
+		display: none;
+		}
+}
+
+.header {
+    height: 100vh;
+    @include breakpoint($bp-576) {
+        height: auto;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        border-bottom: 1px solid #fff;
+        @include breakpoint($bp-576) {
+            flex-direction: column;
+        }
+        &-logo {
+            @include breakpoint($bp-576) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    &__main {
+        margin-top: 100px;
+        &-img {
+            width: 300px;
+            margin: 60px auto;
+            img {
+                width: 100%;
+                height: auto;
+            }
+            @include breakpoint($bp-768) {
+                width: 100%;
+            }
+            @include breakpoint($bp-576) {
+                width: 260px;
+            }
+        }
+        &-info {
+            width: 300px;
+            margin: 100px auto;
+            @include breakpoint($bp-576) {
+                width: 100%;
+                margin: 50px 50px;
+            }
+        }
+        @include breakpoint($bp-576) {
+            margin-top: 20px;
+        }
+    }
+}
+.nav {
+    ul {
+        display: flex;
+    }
+    &__link {
+        margin-right: 30px;
+        cursor: pointer;
+        &:last-child {
+            margin-right: 0px;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+        @include breakpoint($bp-576) {
+            font-size: 13px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        &--footer {
+            @include breakpoint($bp-576) {
+                font-size: 13px;
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+.title {
+    font-size: 30px;
+    &--logo {
+        font-size: 30px;
+        line-height: 25px;
+        a {
+            text-decoration: none;
+            color: $white;
+        }
+    }
+    &--footer {
+        text-align: center;
+    }
+    @include breakpoint($bp-768) {
+        font-size: 22px;
+    }
+}
+.list {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-bottom: 50px;
+
+}
+.link {
+    list-style: inside;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.btn {
+    font-size: 20px;
+    &:hover {
+        background: rgba(255, 255, 255, 0.384);
+    }
+    &--header {
+        padding: 15px 40px;
+        font-size: 20px;
+    }
+}

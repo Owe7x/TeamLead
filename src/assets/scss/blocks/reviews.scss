@@ -1,0 +1,14 @@
+.reviews {
+    width: 400px;
+    margin: 100px auto 0;
+    @include breakpoint($bp-576) {
+        width: 100%;
+    }
+}
+.slider__item {
+    width: 100%;
+    height: auto;
+    img {
+        width: 100%;
+    }
+}
